@@ -18,7 +18,12 @@ RUN apt-get update && apt-get install -y \
 COPY . .
 
 ## Run setup.py
-RUN pip install --no-cache-dir -e .
+# RUN pip install --no-cache-dir -e .
+
+## Install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
 
 # Used PORTS
 EXPOSE 5000
